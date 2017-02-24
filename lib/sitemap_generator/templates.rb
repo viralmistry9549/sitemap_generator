@@ -20,8 +20,8 @@ module SitemapGenerator
       END
     end
 
-    def initialize(root = SitemapGenerator.root)
-      @root = root
+    def initialize(root_path)
+      @root = root_path
     end
 
     # Return the full path to a template.
