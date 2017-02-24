@@ -1,4 +1,5 @@
 require 'builder'
+require 'sitemap_generator'
 
 module SitemapGenerator
   module Builder

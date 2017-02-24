@@ -1,3 +1,5 @@
+require 'sitemap_generator'
+
 module SitemapGenerator
   module Utilities
     extend self

@@ -9,6 +9,8 @@ rescue LoadError
   raise LoadError.new("Missing required 'fog-aws'.  Please 'gem install fog-aws' and require it in your application.")
 end
 
+require 'sitemap_generator'
+
 module SitemapGenerator
   class S3Adapter
 

@@ -2,6 +2,7 @@ require 'builder'
 require 'uri'
 require 'time'
 require 'date'
+require 'sitemap_generator'
 
 module SitemapGenerator
   module Builder

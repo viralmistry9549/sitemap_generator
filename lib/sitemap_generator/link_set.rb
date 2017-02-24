@@ -1,4 +1,5 @@
 require 'builder'
+require 'sitemap_generator'
 
 # A LinkSet provisions a bunch of links to sitemap files.  It also writes the index file
 # which lists all the sitemap files written.

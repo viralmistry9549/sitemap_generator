@@ -1,5 +1,6 @@
 # require this file to load the tasks
 require 'rake'
+require 'sitemap_generator'
 
 # Require sitemap_generator at runtime.  If we don't do this the ActionView helpers are included
 # before the Rails environment can be loaded by other Rake tasks, which causes problems

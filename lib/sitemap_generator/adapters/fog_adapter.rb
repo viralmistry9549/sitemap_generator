@@ -4,6 +4,8 @@ rescue LoadError
   raise LoadError.new("Missing required 'fog'.  Please 'gem install fog' and require it in your application.")
 end
 
+require 'sitemap_generator'
+
 module SitemapGenerator
   class FogAdapter
 

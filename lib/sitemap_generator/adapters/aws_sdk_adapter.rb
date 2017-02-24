@@ -6,6 +6,8 @@ rescue LoadError
                       "add: gem 'aws-sdk' to your Gemfile.")
 end
 
+require 'sitemap_generator'
+
 module SitemapGenerator
   # Class for uploading the sitemaps to an S3 bucket using the plain AWS SDK gem
   class AwsSdkAdapter

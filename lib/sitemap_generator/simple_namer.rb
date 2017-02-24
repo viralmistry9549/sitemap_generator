@@ -1,3 +1,5 @@
+require 'sitemap_generator/utilities'
+
 module SitemapGenerator
   # A class for generating sitemap filenames.
   #

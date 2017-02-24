@@ -1,3 +1,5 @@
+require 'sitemap_generator'
+
 module SitemapGenerator
   module Builder
     class SitemapIndexFile < SitemapFile

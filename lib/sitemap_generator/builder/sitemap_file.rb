@@ -1,5 +1,6 @@
 require 'zlib'
 require 'fileutils'
+require 'sitemap_generator'
 require 'sitemap_generator/helpers/number_helper'
 
 module SitemapGenerator

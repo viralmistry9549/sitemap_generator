@@ -4,6 +4,8 @@ rescue LoadError
   raise LoadError.new("Missing required 'carrierwave'.  Please 'gem install carrierwave' and require it in your application.")
 end
 
+require 'sitemap_generator'
+
 module SitemapGenerator
   class WaveAdapter < ::CarrierWave::Uploader::Base
     attr_accessor :store_dir
