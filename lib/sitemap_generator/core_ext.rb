@@ -1,3 +1,2 @@
-Dir["#{File.dirname(__FILE__)}/core_ext/**/*.rb"].sort.each do |path|
-  require path
-end
+require 'sitemap_generator/core_ext/big_decimal'
+require 'sitemap_generator/core_ext/numeric'
