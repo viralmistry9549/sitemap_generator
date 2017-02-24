@@ -1,3 +1,5 @@
+require 'sitemap_generator'
+
 module SitemapGenerator
   # Class for writing out data to a file.
   class FileAdapter
@@ -15,7 +17,7 @@ module SitemapGenerator
       if !File.exists?(dir)
         FileUtils.mkdir_p(dir)
       elsif !File.directory?(dir)
-        raise SitemapError.new("#{dir} should be a directory!")
+        raise SitemapGenerator::SitemapError.new("#{dir} should be a directory!")
       end
 
       stream = open(location.path, 'wb')
