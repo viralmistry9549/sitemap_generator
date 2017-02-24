@@ -20,37 +20,35 @@ module SitemapGenerator
   SitemapFullError      = Class.new(SitemapError)
   SitemapFinalizedError = Class.new(SitemapError)
 
-  Utilities.with_warnings(nil) do
-    VERSION = File.read(File.dirname(__FILE__) + "/../VERSION").strip
-    MAX_SITEMAP_FILES    = 50_000        # max sitemap links per index file
-    MAX_SITEMAP_LINKS    = 50_000        # max links per sitemap
-    MAX_SITEMAP_IMAGES   = 1_000         # max images per url
-    MAX_SITEMAP_NEWS     = 1_000         # max news sitemap per index_file
-    MAX_SITEMAP_FILESIZE = 10_000_000    # bytes
-    SCHEMAS = {
-      'image'   => 'http://www.google.com/schemas/sitemap-image/1.1',
-      'mobile'  => 'http://www.google.com/schemas/sitemap-mobile/1.0',
-      'news'    => 'http://www.google.com/schemas/sitemap-news/0.9',
-      'pagemap' => 'http://www.google.com/schemas/sitemap-pagemap/1.0',
-      'video'   => 'http://www.google.com/schemas/sitemap-video/1.1'
-    }
+  VERSION = File.read(File.dirname(__FILE__) + "/../VERSION").strip
+  MAX_SITEMAP_FILES    = 50_000        # max sitemap links per index file
+  MAX_SITEMAP_LINKS    = 50_000        # max links per sitemap
+  MAX_SITEMAP_IMAGES   = 1_000         # max images per url
+  MAX_SITEMAP_NEWS     = 1_000         # max news sitemap per index_file
+  MAX_SITEMAP_FILESIZE = 10_000_000    # bytes
+  SCHEMAS = {
+    'image'   => 'http://www.google.com/schemas/sitemap-image/1.1',
+    'mobile'  => 'http://www.google.com/schemas/sitemap-mobile/1.0',
+    'news'    => 'http://www.google.com/schemas/sitemap-news/0.9',
+    'pagemap' => 'http://www.google.com/schemas/sitemap-pagemap/1.0',
+    'video'   => 'http://www.google.com/schemas/sitemap-video/1.1'
+  }
 
-    # Lazy-initialize the LinkSet instance
-    Sitemap = (Class.new do
-      def method_missing(*args, &block)
-        (@link_set ||= reset!).send(*args, &block)
-      end
+  # Lazy-initialize the LinkSet instance
+  Sitemap = (Class.new do
+    def method_missing(*args, &block)
+      (@link_set ||= reset!).send(*args, &block)
+    end
 
-      def respond_to?(name, include_private = false)
-        (@link_set ||= reset!).respond_to?(name, include_private)
-      end
+    def respond_to?(name, include_private = false)
+      (@link_set ||= reset!).respond_to?(name, include_private)
+    end
 
-      # Use a new LinkSet instance
-      def reset!
-        @link_set = LinkSet.new
-      end
-    end).new
-  end
+    # Use a new LinkSet instance
+    def reset!
+      @link_set = LinkSet.new
+    end
+  end).new
 
   class << self
     attr_accessor :root, :app, :templates
