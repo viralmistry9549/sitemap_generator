@@ -1,6 +1,3 @@
-# require "sitemap_generator/core_ext/big_decimal/conversions"
-require "sitemap_generator/utilities"
-
 module SitemapGenerator
   # = SitemapGenerator Number Helpers
   module Helpers #:nodoc:
