@@ -357,6 +357,25 @@ directory.
 
   You must `require 'fog-aws'` in your sitemap config before using this adapter.
 
+  An example of using this adapter in your sitemap configuration:
+
+  ```ruby
+  SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(options)
+  ```
+
+  Where `options` is a Hash with any of the following keys:
+* `aws_access_key_id` [String] Your AWS access key id
+* `aws_secret_access_key` [String] Your AWS secret access key
+* `fog_provider` [String]
+* `fog_directory` [String]
+* `fog_region` [String]
+* `fog_path_style` [String]
+* `fog_storage_options` [Hash] Other options to pass to `Fog::Storage`
+* `fog_public` [Boolean] Whether the file is publicly accessible
+
+Alternatively you can use an environment variable to configure each option (except `fog_storage_options`).  The environment variables have the same
+name but capitalized, e.g. `FOG_PATH_STYLE`.
+
 ##### `SitemapGenerator::AwsSdkAdapter`
 
   Uses `Aws::S3::Resource` to upload to Amazon S3 storage.  Includes automatic detection of your AWS
