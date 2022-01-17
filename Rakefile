@@ -24,7 +24,7 @@ def gem_file;     "#{name}-#{version}.gem" end
 # @see https://github.com/mojombo/rakegem
 #
 
-desc "Build #{gem_file} into the pkg/ directory"
+desc "Build and prepare #{gem_file} into the pkg/ directory"
 task :build => [:prepare] do
   sh "mkdir -p pkg"
   sh "gem build #{gemspec_file}"
