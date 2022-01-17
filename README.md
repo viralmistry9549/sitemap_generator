@@ -87,7 +87,6 @@ Successful ping of Bing
         - [`SitemapGenerator::FogAdapter`](#sitemapgeneratorfogadapter)
         - [`SitemapGenerator::S3Adapter`](#sitemapgenerators3adapter)
         - [`SitemapGenerator::AwsSdkAdapter`](#sitemapgeneratorawssdkadapter)
-        - [`SitemapGenerator::AwsSdkAdapter (DigitalOcean Spaces)`](#sitemapgeneratorawssdkadapter-digitalocean-spaces)
         - [`SitemapGenerator::WaveAdapter`](#sitemapgeneratorwaveadapter)
         - [`SitemapGenerator::GoogleStorageAdapter`](#sitemapgeneratorgooglestorageadapter)
       - [An Example of Using an Adapter](#an-example-of-using-an-adapter)
@@ -379,7 +378,7 @@ name but capitalized, e.g. `FOG_PATH_STYLE`.
 ##### `SitemapGenerator::AwsSdkAdapter`
 
   Uses `Aws::S3::Resource` to upload to Amazon S3 storage.  Includes automatic detection of your AWS
-  credentials using `Aws::Credentials`.
+  credentials and region.
 
   You must `require 'aws-sdk-s3'` in your sitemap config before using this adapter,
   or `require` another library that defines `Aws::S3::Resource` and `Aws::Credentials`.
@@ -388,30 +387,18 @@ name but capitalized, e.g. `FOG_PATH_STYLE`.
 
   ```ruby
   SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new('s3_bucket',
-    aws_access_key_id: 'AKIAI3SW5CRAZBL4WSTA',
-    aws_secret_access_key: 'asdfadsfdsafsadf',
-    aws_region: 'us-east-1'
+    access_key_id: 'AKIAI3SW5CRAZBL4WSTA',
+    secret_access_key: 'asdfadsfdsafsadf',
+    region: 'us-east-1',
+    endpoint: 'https://sfo2.digitaloceanspaces.com'
   )
   ```
 
-##### `SitemapGenerator::AwsSdkAdapter (DigitalOcean Spaces)`
+  Where the first argument is the S3 bucket name, and the rest are keyword argument options which
+  are passed directly to the AWS client.
 
-  Uses `Aws::S3::Resource` to upload to Amazon S3 storage.  Includes automatic detection of your AWS
-  credentials using `Aws::Credentials`.
-
-  You must `require 'aws-sdk-s3'` in your sitemap config before using this adapter,
-  or `require` another library that defines `Aws::S3::Resource` and `Aws::Credentials`.
-
-  An example of using this adapter in your sitemap configuration:
-
-  ```ruby
-  SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new('s3_bucket',
-    aws_access_key_id: 'AKIAI3SW5CRAZBL4WSTA',
-    aws_secret_access_key: 'asdfadsfdsafsadf',
-    aws_region: 'sfo2',
-    aws_endpoint: 'https://sfo2.digitaloceanspaces.com'
-  )
-  ```
+  See https://docs.aws.amazon.com/sdk-for-ruby/v2/api/Aws/S3/Client.html#initialize-instance_method
+  for a full list of supported options.
 
 ##### `SitemapGenerator::WaveAdapter`
 
