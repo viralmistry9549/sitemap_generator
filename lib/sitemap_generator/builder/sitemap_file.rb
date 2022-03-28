@@ -32,11 +32,7 @@ module SitemapGenerator
               xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
               xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-              xmlns:image="#{SitemapGenerator::SCHEMAS['image']}"
-              xmlns:video="#{SitemapGenerator::SCHEMAS['video']}"
-              xmlns:news="#{SitemapGenerator::SCHEMAS['news']}"
               xmlns:mobile="#{SitemapGenerator::SCHEMAS['mobile']}"
-              xmlns:pagemap="#{SitemapGenerator::SCHEMAS['pagemap']}"
               xmlns:xhtml="http://www.w3.org/1999/xhtml"
             >
         HTML
